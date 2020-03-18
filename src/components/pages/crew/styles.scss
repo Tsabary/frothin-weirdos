@@ -1,0 +1,56 @@
+@import "../../../styles/imports";
+
+.member {
+  border-radius: 3rem;
+  box-shadow: 0 1rem 3rem rgb(180, 180, 180);
+  overflow: hidden;
+  height: max-content;
+  &__name {
+    font-family: $fontBold;
+    font-size: 3rem;
+    color: $greyDark;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    &:hover {
+      color: $mainColor;
+    }
+  }
+
+  &__country {
+    font-family: $fontBold;
+    font-size: 2rem;
+    color: $grey;
+    margin-top: 1rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+  }
+}
+
+.crew {
+  &__feed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10rem;
+    
+    @include resize(1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include resize(700px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__social {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(2, min-content);
+  }
+}

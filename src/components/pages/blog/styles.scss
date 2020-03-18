@@ -1,0 +1,29 @@
+@import '../../../styles/imports';
+
+.post {
+  border-radius: 3rem;
+  box-shadow: 0 1rem 3rem rgb(180, 180, 180);
+  overflow: hidden;
+  cursor: pointer;
+
+  &__text {
+    display: grid;
+    grid-gap: 2rem;
+    padding: 3.5rem;
+  }
+
+  &__title {
+    font-family: $fontBold;
+    font-size: 2rem;
+    color: $greyDark;
+    &:hover {
+      color: $mainColor;
+    }
+  }
+
+  &__author {
+    font-family: $font;
+    font-size: 1.5rem;
+    color: $grey;
+  }
+}

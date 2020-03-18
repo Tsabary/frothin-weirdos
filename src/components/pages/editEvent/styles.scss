@@ -1,0 +1,62 @@
+@import "../../../styles/imports";
+
+.new-event {
+  &__image-container {
+    border: $greyLight solid 2px;
+  }
+  &__editor {
+    width: 100%;
+    height: 50rem;
+    border: $greyLight solid 2px;
+  }
+  &__image {
+    &-empty {
+      &-1 {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+      }
+      &-2 {
+        cursor: pointer;
+        font-family: $fontBold;
+        font-size: 10rem;
+        color: $greyLight;
+        text-align: center;
+        position: relative;
+        left: -50%;
+        top: -80%;
+      }
+    }
+  }
+  &__times {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-gap: 2rem;
+  }
+  &__progress {
+    width: 100%;
+    margin: 3rem 0;
+    color: dodgerblue;
+  }
+  &__ready {
+    text-align: center;
+    margin: 3rem auto;
+  }
+
+  &__upload {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.places-autocomplete {
+  font-family: $font, Arimo;
+  font-size: 1.9rem;
+  padding: 0.4rem 3rem;
+  &--active {
+    font-size: 1.4rem;
+  }
+  &-dropdown-container {
+    margin-top: 2rem;
+  }
+}

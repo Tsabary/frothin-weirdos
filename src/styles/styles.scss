@@ -1,0 +1,570 @@
+@import "_imports";
+
+@font-face {
+  font-family: "OutrunFuture";
+  src: local("OutrunFuture"), url(../fonts/Outrun-future.otf) format("opentype");
+}
+
+@font-face {
+  font-family: $fontBold;
+  src: local($fontBold), url(../fonts/Gilroy-ExtraBold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: $font;
+  src: local($font), url(../fonts/Gilroy-Light.otf) format("opentype");
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: $fontBold;
+  font-weight: 900;
+  font-size: 5rem;
+  text-align: center;
+  color: $greyDark;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+h2 {
+  font-family: $fontBold;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 5rem;
+  text-align: center;
+  color: $mainColor;
+  margin-top: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+h3 {
+  font-family: $fontBold;
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: center;
+  color: $mainColor;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.li {
+  font-family: $font;
+  font-size: 1.6rem;
+  color: $greyDark;
+  line-height: 2.8rem;
+  &-unstyled {
+    list-style: none;
+  }
+}
+
+.paragraph {
+  font-family: $font;
+  font-size: 1.6rem;
+  color: $greyDark;
+  line-height: 2.8rem;
+  margin-bottom: 2.8rem;
+}
+.centered-text {
+  text-align: center;
+}
+.centered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bold {
+  &-700 {
+    font-weight: 700;
+    color: $greyDark;
+  }
+  &-900 {
+    font-weight: 900;
+    color: $greyDark;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.quote {
+  font-size: 2.5rem;
+
+  &__content {
+    font-style: italic;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+}
+
+.cover-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  &__container {
+    width: 100%;
+    padding-top: 52.35%;
+    position: relative;
+    cursor: pointer;
+  }
+}
+
+.round-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  &__container {
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: all 0.1s cubic-bezier(1, 0, 0, 1);
+    border: 2px solid purple;
+
+    &--application {
+      margin: auto;
+      width: 80%;
+      padding-top: 80%;
+      border: white solid 2px;
+      box-shadow: 0 0.2rem 1rem rgb(170, 170, 170);
+    }
+
+    &--profile-form {
+      margin: auto;
+      width: 40%;
+      padding-top: 40%;
+      border: white solid 0.5rem;
+      box-shadow: 0 0.2rem 1rem rgb(170, 170, 170);
+
+      &:hover {
+        width: 42%;
+        padding-top: 42%;
+      }
+    }
+
+    &--small {
+      border: white solid 0.2rem;
+      width: 4.5rem;
+      height: 4.5rem;
+      margin: 1rem;
+      box-shadow: 0 0.2rem 0.8rem rgba(170, 170, 170, 0.8);
+
+      &:hover {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
+  }
+}
+
+.social {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, min-content);
+  &__icon {
+    height: 4rem;
+    width: 4rem;
+    fill: $mainColor;
+
+    cursor: pointer;
+    &--facebook {
+      :hover {
+        fill: #3b5998;
+      }
+    }
+    &--instagram {
+      :hover {
+        fill: #f2003c;
+      }
+    }
+  }
+}
+
+.form-error {
+  color: red;
+}
+
+.popup {
+  display: none;
+  width: calc(100% - 12rem);
+  max-width: 60%;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  position: absolute;
+  margin-top: 8rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include resize(800px) {
+    max-width: 80%;
+  }
+
+  @include resize(600px) {
+    max-width: 95%;
+  }
+
+  &:target {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__close {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    justify-self: stretch;
+    width: 100%;
+    margin-top: 0rem;
+    font-family: $font;
+    font-size: 1.4rem;
+    color: $greyDarkest;
+    cursor: pointer;
+    &:hover {
+      color: $mainColor;
+    }
+  }
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    margin: 3rem 2rem 4rem 2rem;
+    padding: 5rem 8rem;
+    border-radius: 3rem;
+    box-shadow: 0 0.2rem 9rem rgb(228, 228, 228);
+    background-color: white;
+    @include resize(600px) {
+      padding: 5rem;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-family: $fontBold;
+    font-size: 5rem;
+    color: $mainColor;
+    margin-bottom: 6rem;
+    margin-top: 3rem;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.empty-feed {
+  font-family: $fontBold;
+  color: $greyLight;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.newsletter {
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    padding: 5rem 8rem;
+    border-radius: 3rem;
+    box-shadow: 0 0.2rem 9rem rgb(210, 210, 210);
+    background-color: white;
+    border: 1px solid $mainColor;
+    @include resize(785px) {
+      padding: 3rem 5rem;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-family: $fontBold;
+    font-size: 5rem;
+    line-height: 5rem;
+    color: $greyDark;
+    margin-bottom: 6rem;
+    margin-top: 3rem;
+    @include resize(900px) {
+      font-size: 4rem;
+      line-height: 4rem;
+      margin-bottom: 5rem;
+    }
+    @include resize(785px) {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    // @include resize(785px) {
+    //   font-size: 3.5rem;
+    //   line-height: 3.5rem;
+    // }
+  }
+  &__content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    height: min-content;
+    font-family: $font, Arimo;
+    font-size: 1.6rem;
+    padding: 1.5rem 3rem;
+    outline: none;
+    border: none;
+    background-color: white;
+    box-shadow: 0 0.2rem 2rem rgb(210, 210, 210);
+    border-radius: 3rem;
+    display: block;
+    border-bottom: 2px solid $mainColor;
+
+    transition: all 0.3s;
+    &::-webkit-input-placeholder {
+      color: $grey;
+    }
+    &:invalid {
+      border-bottom: 2px solid rgb(216, 6, 6);
+    }
+    &:placeholder-shown {
+      border-bottom: 2px solid transparent;
+    }
+  }
+}
+
+.auth {
+  &__button {
+    height: 6rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-family: $font;
+    user-select: none;
+    padding: 1.5rem 5rem 1.7rem 5rem;
+    border-radius: 5rem;
+    box-shadow: 0 0.2rem 1rem rgb(170, 170, 170);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.4rem 1.4rem rgb(170, 170, 170);
+    }
+
+    &--google {
+      background: white;
+      color: red;
+    }
+
+    &--facebook {
+      background: $facebookColor;
+      color: white;
+    }
+
+    &--direct {
+      background: $mainColor;
+      color: white;
+    }
+  }
+}
+
+.flex-group {
+  display: flex;
+}
+.flex-group-spaced {
+  display: flex;
+  justify-content: space-between;
+}
+
+.big-numbered-list {
+  font-family: $font;
+  font-size: 1.6rem;
+  color: $greyDark;
+  line-height: 2.8rem;
+  border-color: $mainColor !important;
+  margin-top: 1rem;
+  padding: 2rem;
+  counter-increment: section;
+  position: relative;
+  z-index: 5;
+
+  &::before {
+    content: counter(section);
+    position: absolute;
+    text-align: center;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: $greyLight;
+    font-size: 9rem;
+    font-family: $fontBold;
+    font-weight: 900;
+    z-index: -5;
+  }
+}
+
+.caged-list {
+  font-family: $font;
+  font-size: 1.6rem;
+  color: $grey;
+  line-height: 2.8rem;
+  border-top: 2px dashed;
+  border-color: $mainColor !important;
+  margin: 0;
+  padding: 3rem;
+  counter-increment: section;
+  position: relative;
+}
+
+.caged-list:nth-child(even):before {
+  content: counter(section);
+  right: 100%;
+  margin-right: -2rem;
+  position: absolute;
+  border-radius: 50%;
+  padding: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background: $gradientColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: white;
+  font-size: 110%;
+}
+
+.caged-list:nth-child(odd):before {
+  content: counter(section);
+  left: 100%;
+  margin-left: -2rem;
+  position: absolute;
+  border-radius: 50%;
+  padding: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background: $gradientColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 110%;
+}
+
+.caged-list:nth-child(even) {
+  border-left: 2px dashed;
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  margin-right: 3rem;
+  padding-right: 0;
+}
+
+.caged-list:nth-child(odd) {
+  border-right: 2px dashed;
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  margin-left: 3rem;
+  padding-left: 0;
+}
+
+.caged-list:first-child {
+  border-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.caged-list:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.tiny-margin-right {
+  margin-right: 2rem;
+}
+
+.small-margin-right {
+  margin-right: 4rem;
+}
+
+.medium-margin-right {
+  margin-right: 8rem;
+}
+
+.big-margin-right {
+  margin-right: 16rem;
+}
+
+.extra-tiny-margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.tiny-margin-bottom {
+  margin-bottom: 2rem;
+}
+.extra-small-margin-bottom {
+  margin-bottom: 3rem;
+}
+
+.small-margin-bottom {
+  margin-bottom: 4rem;
+}
+
+.medium-margin-bottom {
+  margin-bottom: 8rem;
+}
+
+.big-margin-bottom {
+  margin-bottom: 16rem;
+}
+
+.extra-tiny-margin-top {
+  margin-top: 1rem;
+}
+
+.tiny-margin-top {
+  margin-top: 2rem;
+}
+
+.small-margin-top {
+  margin-top: 4rem;
+}
+
+.medium-margin-top {
+  margin-top: 8rem;
+}
+
+.big-margin-top {
+  margin-top: 16rem;
+}

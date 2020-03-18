@@ -1,0 +1,35 @@
+@import "../../../styles/imports";
+
+.popup-button {
+  &__content {
+    display: grid;
+    gap: 1rem;
+    padding: 3rem;
+    align-items: center;
+  }
+
+  &__trigger {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: $grey;
+    font-family: $font;
+    font-size: 1.6rem;
+    &:hover{
+      color: $mainColor;
+    }
+  }
+
+  &__action{
+    color: $grey;
+    font-family: $font;
+    cursor: pointer;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    &:hover{
+        color: $mainColor;
+    }
+  }
+}

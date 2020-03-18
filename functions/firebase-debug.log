@@ -1,0 +1,23 @@
+[debug] [2020-02-22T15:59:02.922Z] ----------------------------------------------------------------------
+[debug] [2020-02-22T15:59:02.924Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Assaf Tzabary\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-02-22T15:59:02.925Z] CLI Version:   7.13.1
+[debug] [2020-02-22T15:59:02.925Z] Platform:      win32
+[debug] [2020-02-22T15:59:02.925Z] Node Version:  v12.16.1
+[debug] [2020-02-22T15:59:02.926Z] Time:          Sat Feb 22 2020 17:59:02 GMT+0200 (GMT+02:00)
+[debug] [2020-02-22T15:59:02.926Z] ----------------------------------------------------------------------
+[debug] [2020-02-22T15:59:02.926Z] 
+[debug] [2020-02-22T15:59:02.935Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-22T15:59:02.935Z] > authorizing via signed-in user
+[debug] [2020-02-22T15:59:02.935Z] [iam] checking project frothin-weirdos for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2020-02-22T15:59:02.937Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/frothin-weirdos:testIamPermissions  
+
+[debug] [2020-02-22T15:59:03.968Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-22T15:59:03.970Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/frothin-weirdos  
+ 
+[debug] [2020-02-22T15:59:04.281Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'frothin-weirdos'...
+[info] 
+[info] i  deploying storage, firestore, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build

@@ -1,0 +1,17 @@
+@import "../../../styles/imports";
+
+.applications {
+  &__section {
+    font-family: $fontBold;
+    font-size: 3rem;
+    cursor: pointer;
+    
+    &--active {
+      color: $mainColor;
+    }
+
+    &--unactive {
+      color: $grey;
+    }
+  }
+}

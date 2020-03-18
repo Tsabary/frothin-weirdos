@@ -1,0 +1,44 @@
+.application {
+  border-radius: 3rem;
+  box-shadow: 0 1rem 3rem rgb(180, 180, 180);
+  padding: 3rem;
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__comment-form {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  &__comments {
+    display: grid;
+    gap: 3rem;
+  }
+
+  &__actions{
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: 1fr repeat(2, max-content);
+  }
+}
+
+summary {
+  user-select: none;
+  cursor: pointer;
+}
+summary::-webkit-details-marker {
+  color: var(--color-grey-medium);
+  font-size: 75%;
+  margin-right: 1rem;
+  visibility: hidden;
+  opacity: 0;
+}
+summary:focus {
+  outline-style: none;
+}

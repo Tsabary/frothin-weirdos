@@ -1,0 +1,8 @@
+@import '../../../styles/imports';
+
+.home {
+  &__divider {
+    width: 100%;
+    border-top: 1px $grey solid;
+  }
+}
